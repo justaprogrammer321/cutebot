@@ -1,6 +1,5 @@
-
 *{
-  background-color: black;
+  background-color: rgb(4, 0, 0);
   margin: 0;
   padding: 0;
   cursor: url('cursor.svg'), auto;
@@ -35,9 +34,11 @@
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
   position: absolute;
+  left: 50%;
   transform: translateX(-50%);
   cursor: pointer; /* Add this to show the cursor as a pointer when hovering over the mouth */
 }
+
 .mouth-input {
   /* Customize the styling of the input element here */
   width: 50%;
@@ -47,12 +48,35 @@
   background-color: black;
   color: grey;
   position: absolute;
+  left: 50%;
   transform: translateX(-50%);
-  left: calc(50% - 100px);
   font-weight: 600;
   outline: none;
 }
 
 .custom-cursor {
   cursor: url(),auto;
+}
+
+form {
+  padding: 10px;
+  color: grey;
+}
+
+form input {
+  padding: 10px;
+  color: grey;
+  border: solid 2px #00bfff;
+}
+
+form button {
+  color: grey;
+}
+
+#box {
+  width: 360px;
+  position: relative;
+}
+video{
+  display: none;
 }
