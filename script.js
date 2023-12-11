@@ -79,13 +79,21 @@ function handleCommand(command) {
     mouthInput.value += `\nBot: ${joke}`;
     mouthInput.scrollTop = mouthInput.scrollHeight;
   } else if (command.toLowerCase() === 'hi') {
-    const imageContainer = document.createElement('div');
-    const image = new Image();
-    image.src = 'hi.svg';
-    imageContainer.appendChild(image);
-    document.body.appendChild(imageContainer);
-    mouthInput.value += "\nBot: Hi! Here's an image for you.";
+    const videoContainer = document.createElement('div');
+    const video = document.createElement('video');
+    video.src = 'hi_video.mp4'; // Replace 'hi_video.mp4' with your video URL or source
+    video.autoplay = true;
+    video.loop = false; // Play once without looping
+    video.muted = true; // Mute the video to prevent potential audio issues
+    videoContainer.appendChild(video);
+    document.body.appendChild(videoContainer);
+    mouthInput.value += "\nBot: Hi! Here's a video for you.";
     mouthInput.scrollTop = mouthInput.scrollHeight;
+
+    // Remove the video element after it finishes playing
+    video.onended = function() {
+      videoContainer.remove();
+    };
   } else if (command === 'cursor') {
     document.body.style.cursor = 'url(cursor.svg), auto';
     mouthInput.value += "\nBot: Cursor style changed to custom cursor.";
@@ -100,6 +108,7 @@ function handleCommand(command) {
     mouthInput.scrollTop = mouthInput.scrollHeight;
   }
 }
+
 
 function startCamera() {
   var canvas = document.querySelector("canvas");
